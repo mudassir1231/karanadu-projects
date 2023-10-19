@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-image: url({% static 'bg.jpg' %}); /* Replace with the URL of your background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent white background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a box shadow */
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Add a semi-transparent white background to the form */
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a box shadow to the form */
+        }
+
+        button[type="submit"] {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff; /* Change button background color to blue */
+            color: #fff; /* Change button text color to white */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3; /* Change button background color on hover */
+        }
+
+        /* Add any additional styles for your form fields here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enter the values</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
